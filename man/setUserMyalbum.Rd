@@ -4,8 +4,7 @@
 \alias{setUserMyalbum}
 \title{Add album to your list of favorite albums myalbums}
 \usage{
-setUserMyalbum(token, album_id,
-  client_id = Sys.getenv("JAMENDO_CLIENT_ID"))
+setUserMyalbum(token, album_id, client_id = Sys.getenv("JAMENDO_CLIENT_ID"))
 }
 \arguments{
 \item{token}{Your OAuth access token}
@@ -21,7 +20,10 @@ Add album to your list of favorite albums myalbums
 \examples{
 \donttest{
 ## Example
- token <- jamendoOAuth(app_name="xxxx")
- setUserMyalbum(token)
+ app_name = ""
+ if(app_name != "") {
+  token <- jamendoOAuth(app_name=app_name)
+  setUserMyalbum(token, "14866")
+ }
 }
 }

@@ -4,8 +4,7 @@
 \alias{setUserFavorite}
 \title{Add a given track to your preferites}
 \usage{
-setUserFavorite(token, track_id,
-  client_id = Sys.getenv("JAMENDO_CLIENT_ID"))
+setUserFavorite(token, track_id, client_id = Sys.getenv("JAMENDO_CLIENT_ID"))
 }
 \arguments{
 \item{token}{Your OAuth access token}
@@ -21,7 +20,10 @@ Add a given track to your preferites
 \examples{
 \donttest{
 ## Example
- token <- jamendoOAuth(app_name="xxxx")
- setUserFavorite(token)
+ app_name = ""
+ if(app_name != "") {
+  token <- jamendoOAuth(app_name=app_name)
+  setUserFavorite(token, "114069")
+ }
 }
 }

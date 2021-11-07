@@ -4,8 +4,11 @@
 \alias{jamendoOAuth}
 \title{Create OAuth token to access jamendo web API}
 \usage{
-jamendoOAuth(app_name, client_id = Sys.getenv("JAMENDO_CLIENT_ID"),
-  client_secret = Sys.getenv("JAMENDO_CLIENT_SECRET"))
+jamendoOAuth(
+  app_name,
+  client_id = Sys.getenv("JAMENDO_CLIENT_ID"),
+  client_secret = Sys.getenv("JAMENDO_CLIENT_SECRET")
+)
 }
 \arguments{
 \item{app_name}{App name (this is an internal identification for token if you wish to save authorization)}
@@ -26,9 +29,12 @@ file in disk to be re-used in future sessions. This function relies on the
 \examples{
 \donttest{
 ## Example
- my_oauth <- jamendoOAuth(app_name="xxxx")
- filedir <- tempdir()
- save(my_oauth, file=file.path(filedir, "my_oauth"))
+ app_name = ""
+ if(app_name != "") {
+  my_oauth <- jamendoOAuth(app_name=app_name)
+  filedir <- tempdir()
+  save(my_oauth, file=file.path(filedir, "my_oauth"))
+ }
 }
 
 
